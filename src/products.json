@@ -13,5 +13,19 @@
       "Type": "Double Decker"
     },
     "Description": "S.R Production Double Decker: Offering innovative features like automatic doors and excellent track sounds, with upcoming updates including an Eog Generator Car and interior enhancements, ensuring an immersive train experience."
-  }
+  },
+  {
+    "product_id": 5,
+    "Name": "Bullet Train (Maglev)",
+    "Prices": "200.00",
+    "Category": "High-Speed Rail",
+    "Images": [
+      "https://picsum.photos/id/19/500/300",
+      "https://picsum.photos/id/20/500/300",
+      "https://picsum.photos/id/21/500/300"
+    ],
+    "Tags": {
+      "Developed By": "HyperSpeed Industries",
+      "Type": "Maglev Bullet Train"
+    }
 ]
