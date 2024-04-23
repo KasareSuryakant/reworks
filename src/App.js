@@ -6,6 +6,7 @@ import DetailProduct from './pages/DetailProduct';
 import Gallery from './pages/Gallery';
 import Home from './pages/Home';
 import Login from './pages/Login'
+import Cart from './pages/Cart'
 export default function App() {
   return (
     <>
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/products/:id" element={<DetailProduct />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Login />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/products" element={<Products/>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
