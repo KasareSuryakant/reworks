@@ -5,7 +5,7 @@ import Products from './pages/Products';
 import DetailProduct from './pages/DetailProduct';
 import Gallery from './pages/Gallery';
 import Home from './pages/Home';
-
+import Login from './pages/Login'
 export default function App() {
   return (
     <>
@@ -14,6 +14,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/products/:id" element={<DetailProduct />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Login />} />
           <Route path="/products" element={<Products/>} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
