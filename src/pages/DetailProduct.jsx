@@ -1,23 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import productsData from '../products.json';
 import './DetailProduct.css';
 import Header from '../components/Header';
 import AllProducts from '../components/AllProducts';
 
 function DetailProduct() {
-  const { id } = useParams();
+  const { id: routeId } = useParams();
+  const [id, setId] = useState('');
   const [product, setProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState('');
+
+  // Check if routeId has changed and update the id state accordingly
+  useEffect(() => {
+    setId(routeId);
+  }, [routeId]);
 
   useEffect(() => {
     const matchedProduct = productsData.find(product => product.product_id === parseInt(id));
     if (matchedProduct) {
       setProduct(matchedProduct);
-      setSelectedImage(matchedProduct.Images[0]); // Select the first image by default
+      // Check if the selected image has been set, if not, select the first image
+      if (!selectedImage) {
+        setSelectedImage(matchedProduct.Images[0]); // Select the first image by default
+      }
     }
-  }, [id]);
+
+    // Scroll to the top only when the id parameter changes
+    window.scrollTo(0, 0);
+  }, [id]); // Only run the effect when id changes
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
@@ -60,17 +73,17 @@ function DetailProduct() {
                 <div className="description">
                   <p>{product.Description}</p>
                 </div>
-                <Button variant="primary" className="add-to-cart">Add to Cart</Button>
+                <Link to="/cart">
+                  <Button variant="primary" className="add-to-cart">Add to Cart</Button>
+                </Link>
               </Col>
             </Row>
           </div>
         </Container>
       )}
 
-
-     
       <Container className="more-products">
-        <hr/>
+        <hr />
         <h1 className="more-products">More Products</h1>
         <AllProducts />
       </Container>
